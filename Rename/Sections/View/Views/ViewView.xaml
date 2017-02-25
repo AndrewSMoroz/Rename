@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Rename.Sections.View.Views.ViewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Rename.Sections.View.Views"
+             mc:Ignorable="d" d:DesignHeight="200" d:DesignWidth="300">
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Panel.ZIndex="99"
+                Visibility="{Binding Path=IsBuildingImageList, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                Background="{Binding Path=IsBuildingImageList, Converter={StaticResource BoolToColorConverter}}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock Text="Building image list..." HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Border>
+        <Image Grid.Row="0" Grid.Column="0" x:Name="image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3" Stretch="Uniform" 
+               Source="{Binding Path=ImageFile}">
+            <Image.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding LoadRandomImageCommand}"></MouseBinding>
+            </Image.InputBindings>
+        </Image>
+        <Border Grid.Row="0" Grid.Column="1" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding LoadRandomImageCommand}"></MouseBinding>
+            </Border.InputBindings>
+        </Border>
+        <StatusBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <StatusBarItem>
+                <TextBlock Text="{Binding Path=CurrentDirectory}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding Path=CurrentFileName}"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding Path=ImageCount}"></TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+
+</UserControl>

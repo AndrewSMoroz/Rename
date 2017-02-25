@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B59C704C-C5B2-4B4B-8813-D82283955FCE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rename</RootNamespace>
+    <AssemblyName>Rename</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ExtensionMethods\MessageExtensions.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Sections\Home\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\Home\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Sections\Home\Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\Rename\Pages\RenamePage.xaml.cs">
+      <DependentUpon>RenamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\Rename\ViewModels\RenameViewModel.cs" />
+    <Compile Include="Sections\Rename\Views\RenameView.xaml.cs">
+      <DependentUpon>RenameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\Settings\Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\Settings\ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Sections\Settings\Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\View\Pages\ViewPage.xaml.cs">
+      <DependentUpon>ViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\View\ViewModels\ViewViewModel.cs" />
+    <Compile Include="Sections\View\Views\ViewView.xaml.cs">
+      <DependentUpon>ViewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\AppSettingsHelper.cs" />
+    <Compile Include="Utility\DirectoryMapItem.cs" />
+    <Compile Include="Utility\ExtensionMapItem.cs" />
+    <Compile Include="Utility\FolderBrowserLauncher.cs" />
+    <Compile Include="Utility\IInteractionManager.cs" />
+    <Compile Include="Utility\INavigationManager.cs" />
+    <Compile Include="Utility\InteractionManager.cs" />
+    <Compile Include="Utility\IUserSettingsManager.cs" />
+    <Compile Include="Utility\Message.cs" />
+    <Compile Include="Utility\NavigationManager.cs" />
+    <Compile Include="Utility\ObservableObject.cs" />
+    <Compile Include="Utility\PropertyHelper.cs" />
+    <Compile Include="Utility\RelayCommandEx.cs" />
+    <Compile Include="Utility\UserSettings.cs" />
+    <Compile Include="Utility\UserSettingsManager.cs" />
+    <Compile Include="Utility\ViewModelBase.cs" />
+    <Compile Include="ValueConverters\BoolToColorConverter.cs" />
+    <Compile Include="ValueConverters\BoolToNavigationUIVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\BoolToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\EmptyCollectionToBoolConverter.cs" />
+    <Compile Include="ValueConverters\EmptyCollectionToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\EmptyDataTableToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\EnumToBoolConverter.cs" />
+    <Compile Include="ValueConverters\EnumToBoolNewConverter.cs" />
+    <Compile Include="ValueConverters\InvertBoolConverter.cs" />
+    <Compile Include="ValueConverters\InvertBoolToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\MissingValueToColorConverter.cs" />
+    <Compile Include="ValueConverters\NullOrEmptyStringToBoolConverter.cs" />
+    <Compile Include="ValueConverters\NullToBoolConverter.cs" />
+    <Compile Include="ValueConverters\NullToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\ReadOnlyBoolToVisibilityConverter.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\Home\Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\Home\Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\Rename\Pages\RenamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\Rename\Views\RenameView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sections\Settings\Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\Settings\Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\View\Pages\ViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sections\View\Views\ViewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
